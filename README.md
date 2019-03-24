@@ -1,2 +1,2 @@
 # SpringBootMicroservices
-Small Microservices demo using Spring Cloud, Eureka
+Microservices using Spring Cloud, Eureka
