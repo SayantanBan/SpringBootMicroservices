@@ -19,7 +19,7 @@ node {
         }
 
         stage ('Run') {
-            docker.image("sayantanbanerjee/springbootoauth2:${env.version}").run('-p 2222:2222 -h account --name account --link discovery')
+            docker.image("sayantanbanerjee/springbootoauth2:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
         }
 
         stage ('Final') {
