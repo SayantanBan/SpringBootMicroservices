@@ -12,12 +12,11 @@ node {
         }
         stage('Image') {
             dir ('discovery-service') {
-                def app = docker.build "sayantanbanerjee/jenkins_to_docker_discovey_server:${env.version}"
-                app.push()
+                sh 'docker push sayantanbanerjee/jenkins_to_docker_discovey_server'
             }
         }
         stage ('Run') {
-            docker.image("sayantanbanerjee/jenkins_to_docker_discovey_server:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
+            // docker.image("sayantanbanerjee/jenkins_to_docker_discovey_server:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
         }
         stage('Test') { 
             // 
