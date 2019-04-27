@@ -15,9 +15,10 @@ node {
             }
         }
         stage('Test') { 
-        // 
-    }
-    stage('Deploy') { 
-        // sh 'mvn install'
+            // 
+        }
+        stage('Deploy') { 
+            // sh 'mvn install'
+        }
     }
 }
