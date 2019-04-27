@@ -7,12 +7,12 @@ node {
             withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
             dir('discovery-server'){
                   sh 'mvn clean install'
+                  sh 'docker build -t sayantanbanerjee/jenkins_to_docker_discovey_server'
                 }
             }
         }
         stage('Image') {
             dir ('discovery-service') {
-                sh 'docker push sayantanbanerjee/jenkins_to_docker_discovey_server'
             }
         }
         stage ('Run') {
