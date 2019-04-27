@@ -7,13 +7,11 @@ node {
             withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
             dir('discovery-server'){
                   sh 'mvn clean install'
-                  sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices/tree/master/discovery-server'
                 }
             }
         }
         stage('Image') {
-            dir ('discovery-service') {
-            }
+            sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices.git'
         }
         stage ('Run') {
             // docker.image("sayantanbanerjee/jenkins_to_docker_discovey_server:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
