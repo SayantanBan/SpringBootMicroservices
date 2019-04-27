@@ -21,6 +21,7 @@ node {
         }
         stage('Deploy') { 
             // sh 'mvn install'
+            sh 'docker login -u sayantanbanerjee -p P@ssword@1994'
             sh 'docker push sayantanbanerjee/discovery-server'
         }
     
