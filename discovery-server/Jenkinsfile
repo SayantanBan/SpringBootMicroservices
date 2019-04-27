@@ -11,7 +11,7 @@ node {
             }
         }
         stage('Image') {
-            // sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices.git#master:discovery-server'
+            sh 'docker build github.com/SayantanBan/SpringBootMicroservices/discovery-server'
         }
         stage ('Run') {
             // docker.image("sayantanbanerjee/jenkins_to_docker_discovey_server:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
