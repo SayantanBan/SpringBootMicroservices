@@ -6,10 +6,7 @@ node {
             def mvn_version = 'M3'
             withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
             dir('discovery-server'){
-                sh 'mvn clean install'
-                def pom = readMavenPom file:'pom.xml'
-                print pom.version
-                env.version = pom.version
+                  sh 'mvn clean install'
                 }
             }
         }
