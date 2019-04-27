@@ -4,21 +4,20 @@ node {
                 git url: 'https://github.com/SayantanBan/SpringBootMicroservices.git', credentialsId: 'github-sayantan', branch: 'master'
         }
         stage('Build') { 
-            // sh 'mvn -B -DskipTests clean package'  
             def mvn_version = 'M3'
             withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+            dir('discovery-server'){
                 sh 'mvn clean install'
-
                 def pom = readMavenPom file:'pom.xml'
                 print pom.version
                 env.version = pom.version
+                }
             }
         }
         stage('Test') { 
-            // 
-        }
-        stage('Deploy') { 
-            // sh 'mvn install'
-        }
+        // 
+    }
+    stage('Deploy') { 
+        // sh 'mvn install'
     }
 }
