@@ -28,7 +28,7 @@ node {
             sh 'docker push sayantanbanerjee/jenkins_to_docker_discovey_server'
         }
         stage ('Run') {
-             sh 'docker run sayantanbanerjee/jenkins_to_docker_discovey_server'
+             sh 'docker pull sayantanbanerjee/jenkins_to_docker_discovey_server'
         }     
     
 }
