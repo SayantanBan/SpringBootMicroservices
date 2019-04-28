@@ -29,7 +29,7 @@ node {
         }
         stage ('Run') {
              sh 'docker pull sayantanbanerjee/jenkins_to_docker_discovey_server'
-             sh 'docker run -p 8761:8761 -t sayantanbanerjee/jenkins_to_docker_discovey_server'
+             // sh 'docker run -p 8761:8761 -t sayantanbanerjee/jenkins_to_docker_discovey_server'
         }     
     
 }
