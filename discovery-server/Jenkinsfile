@@ -29,7 +29,7 @@ node {
         }
         stage ('Run') {
              sh 'docker pull sayantanbanerjee/jenkins_to_docker_discovey_server'
-             sh 'docker pull sayantanbanerjee/jenkins_to_docker_discovey_server'
+             sh 'docker run sayantanbanerjee/jenkins_to_docker_discovey_server'
         }     
     
 }
