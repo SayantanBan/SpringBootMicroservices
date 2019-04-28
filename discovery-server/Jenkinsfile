@@ -20,10 +20,10 @@ node {
         }
         stage('Image') {
             sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices.git#master:discovery-server'
+            sh 'docker tag  jenkins_to_docker_discovey_server:latest https://github.com/SayantanBan/SpringBootMicroservices.git#master:discovery-server:latest'
         }
         stage('Deploy') { 
             sh 'docker login -u sayantanbanerjee -p P@ssword@1994'
-            sh 'docker tag sayantanbanerjee/jenkins_to_docker_discovey_server latest'
             sh 'docker push sayantanbanerjee/jenkins_to_docker_discovey_server:latest'
         }
         stage ('Run') {
