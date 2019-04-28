@@ -20,7 +20,7 @@ node {
         }
         stage('Image') {
             dir('discovery-server'){
-               sh 'docker build -t sayantanbanerjee/jenkins_to_docker_discovey_server:latest'
+               sh 'docker build -t sayantanbanerjee/jenkins_to_docker_discovey_server:latest .'
             }
         }
         stage('Deploy') { 
