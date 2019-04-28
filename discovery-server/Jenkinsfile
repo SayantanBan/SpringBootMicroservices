@@ -23,7 +23,7 @@ node {
         }
         stage('Deploy') { 
             sh 'docker login -u sayantanbanerjee -p P@ssword@1994'
-            sh 'docker tag sayantanbanerjee/jenkins_to_docker_discovey_server:latest'
+            sh 'docker tag sayantanbanerjee/jenkins_to_docker_discovey_server latest'
             sh 'docker push sayantanbanerjee/jenkins_to_docker_discovey_server:latest'
         }
         stage ('Run') {
