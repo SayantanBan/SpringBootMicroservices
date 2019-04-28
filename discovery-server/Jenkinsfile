@@ -10,19 +10,20 @@ node {
                 }
             }
         }
+        stage('Test') { 
+            sh 'mvn test'
+        }
         stage('Image') {
             sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices.git#master:discovery-server'
-        }
-        stage ('Run') {
-            // docker.image("sayantanbanerjee/jenkins_to_docker_discovey_server:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
-        }
-        stage('Test') { 
-            // 
         }
         stage('Deploy') { 
             // sh 'mvn install'
             sh 'docker login -u sayantanbanerjee -p P@ssword@1994'
-            sh 'docker push sayantanbanerjee/discovery-server'
+            sh 'docker push sayantanbanerjee/jenkins_to_docker_discovey_server'
         }
+        stage ('Run') {
+             sh 'docker pull sayantanbanerjee/jenkins_to_docker_discovey_server'
+             sh 'docker run sayantanbanerjee/jenkins_to_docker_discovey_server'
+        }     
     
 }
