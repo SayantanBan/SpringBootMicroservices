@@ -19,7 +19,7 @@ node {
             }        
         }
         stage('Image') {
-            sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices.git#master:discovery-server --latest'
+            sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices.git#latest:discovery-server'
         }
         stage('Deploy') { 
             sh 'docker login -u sayantanbanerjee -p P@ssword@1994'
