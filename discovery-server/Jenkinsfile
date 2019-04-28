@@ -11,7 +11,12 @@ node {
             }
         }
         stage('Test') { 
-            sh 'mvn test'
+            def mvn_version = 'M3'
+            withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+            dir('discovery-server'){
+                  sh 'mvn test'
+                }
+            }        
         }
         stage('Image') {
             sh 'docker build https://github.com/SayantanBan/SpringBootMicroservices.git#master:discovery-server'
