@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 	
+		targetNamespace="http://tk.sayantanbanerjee.currencyconversionsoapservice/jaxb2" 
+		xmlns:tns="http://tk.sayantanbanerjee.currencyconversionsoapservice/jaxb2" elementFormDefault="qualified">
+	<xs:element name="GetCurrencyConversionRequest">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="currency_form" type="xs:string"/>
+				<xs:element name="currency_to" type="xs:string"/>
+				<xs:element name="quantity" type="xs:decimal"/>
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+    <xs:element name="GetCurrencyConversionResponse">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="CurrencyConversion" type="tns:CurrencyConversion"/>
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+    <xs:complexType name="CurrencyConversion">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long"/>
+			<xs:element name="currency_form" type="xs:string"/>
+			<xs:element name="currency_to" type="xs:string"/>
+			<xs:element name="conversionMultiple" type="xs:decimal"/>
+			<xs:element name="quantity" type="xs:decimal"/>
+			<xs:element name="totalCalculatedAmount" type="xs:decimal"/>
+			<xs:element name="port" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
