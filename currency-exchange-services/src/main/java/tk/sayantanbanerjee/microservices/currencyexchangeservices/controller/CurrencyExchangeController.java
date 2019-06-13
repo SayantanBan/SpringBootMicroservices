@@ -25,7 +25,7 @@ public class CurrencyExchangeController {
 	private ExchangeValueRepository repository;
 	
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")
-	public ExchangeValue retrieveExchangeValue(@RequestHeader(required = true, name = "bearerToken") String bearerToken, @PathVariable String from, @PathVariable String to) {
+	public ExchangeValue retrieveExchangeValue(@RequestHeader(required = false, name = "bearerToken") String bearerToken, @PathVariable String from, @PathVariable String to) {
 			
 		ExchangeValue exchangeValue = repository.findByFromAndTo(from, to);
 		

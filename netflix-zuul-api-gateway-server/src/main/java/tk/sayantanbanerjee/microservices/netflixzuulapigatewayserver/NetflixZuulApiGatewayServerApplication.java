@@ -10,7 +10,7 @@ import brave.sampler.Sampler;
 
 @SpringBootApplication
 @EnableZuulProxy
-@EnableEurekaClient
+//@EnableEurekaClient
 public class NetflixZuulApiGatewayServerApplication {
 
 	public static void main(String[] args) {
